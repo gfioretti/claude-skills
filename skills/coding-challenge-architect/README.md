@@ -45,13 +45,13 @@ If your background is outside this list, the skill will use the closest analog a
 
 ## Installation
 
-This skill lives in the [`<your-github-username>/claude-skills`](../../) monorepo. Each skill can be installed individually.
+This skill lives in the [`gfioretti/claude-skills`](../../) monorepo. Each skill can be installed individually.
 
 ### Claude Code
 
 ```
-/plugin marketplace add <your-github-username>/claude-skills
-/plugin install coding-challenge-architect@<your-github-username>
+/plugin marketplace add gfioretti/claude-skills
+/plugin install coding-challenge-architect@gfioretti
 ```
 
 After installing, the skill is available — just describe what you want.
