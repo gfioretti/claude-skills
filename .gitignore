@@ -1,0 +1,21 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Editors
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.netrwhist
+
+# Logs and temp files
+*.log
+*.tmp
+*.bak
+
+# OS junk
+Thumbs.db
+desktop.ini
