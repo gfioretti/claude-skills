@@ -7,7 +7,7 @@ description: >
   behaviour parity, reproducing a legacy tool's output.
 metadata:
   author: gvfioretti
-  version: "1.1.0"
+  version: "1.2.0"
 ---
 
 # Faithful, golden-verified porting
@@ -151,6 +151,8 @@ was mechanical and the oracle was real.
 - [Faithful replication](references/faithful-replication.md) — the quirk catalog.
 - [Planning board](references/planning-board.md) — the scrumban backlog pattern.
 - [Workflow](references/workflow.md) — architecture + the merge-often loop + cadence.
+- [Case study: nesmith](references/nesmith-case-study.md) — the whole discipline on
+  one real port, start to finish (incl. the stumbles).
 
 ## Ground rules
 
