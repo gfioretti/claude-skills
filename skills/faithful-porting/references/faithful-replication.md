@@ -17,6 +17,14 @@ rarely in the "interesting" logic — they're in the boring details below. Port
   Clean up only after the stage is green against its oracle.
 - **Preserve verbatim source identifiers** in comments and planning docs — don't
   "translate" names like `ToNES`, `Array.Sort`, `FromArgb`.
+- **The port may still adopt its own house style** for the identifiers *it* names.
+  Mirror the source's *structure and logic* (and keep names close for line-by-line
+  comparison), but the port's own public API, modules, and filenames follow the
+  **target project's conventions** — casing, idioms, spelling. nesmith chose British
+  spelling throughout (`colour`, `behaviour`, `nes_colour_byte`, `colour.rs`) while
+  keeping genuine source tokens verbatim where it *references* the original (`ToNES`,
+  `FromArgb`). Settle the convention up front so it's applied from the first file,
+  not retrofitted.
 
 ## The quirk catalog (what breaks byte-parity)
 
