@@ -7,7 +7,7 @@ description: >
   behaviour parity, reproducing a legacy tool's output.
 metadata:
   author: gvfioretti
-  version: "1.0.0"
+  version: "1.1.0"
 ---
 
 # Faithful, golden-verified porting
@@ -58,8 +58,10 @@ Work the phases in order. Check each off before moving on.
   verifiability + data dependency** (deterministic/golden-verifiable first,
   riskiest heuristic last) — not business priority. Write `planning/` + a
   `BACKLOG.md` + a README. **Break down only the next epic; keep the rest coarse
-  (just-in-time)**, re-sequencing as dependencies surface. See
-  [Planning board](references/planning-board.md).
+  (just-in-time)**, re-sequencing as dependencies surface. **Scope first:** present
+  each feature's scope (story + tasks) and flag the genuine decisions *before* any
+  code; let the human adjust the plan, then wait for the go. A plan is cheap to
+  change; built code isn't. See [Planning board](references/planning-board.md).
 - [ ] **Phase 5 — Implement per ticket** (one ticket per branch off fresh `main`):
   **RED** a failing test pinning behaviour → **GREEN** a faithful, mechanical port
   (**re-read the exact source lines as you write; never port from memory**;
@@ -69,7 +71,23 @@ Work the phases in order. Check each off before moving on.
   parent story-row) in this branch** → PR with auto-merge → watch it land → next
   ticket off fresh `main`. A stage with no standalone golden: build the pipeline
   harness to produce one, then implement against it.
+  - **Wait for an explicit "start ticket N"** before implementing — don't build on
+    a vague or background signal. Once the human says "keep rolling," run the loop
+    unattended ticket-by-ticket and pause only for a real decision.
+  - **Scaffold-only mode** — some humans want to *own* the port. Then write **only
+    the RED test** on the feature branch, confirm it fails, hand off, and **wait**;
+    do not write the GREEN implementation until asked. RED and the human's GREEN
+    commits share the *same* feature branch, which PRs once green. (This is
+    different from pre-scaffolding many tickets ahead — see the holding-branch note
+    in [Workflow](references/workflow.md).)
 - [ ] **Phase 6 — Finish.** Adapters/CLI, docs, reconcile the board, update memory.
+- [ ] **Phase 7 — Beyond parity.** When the **end-to-end goldens pass, the porting
+  discipline is done** and this skill no longer applies. Further capabilities (a
+  GUI, new features) are **ordinary development** — brainstorm them and diverge
+  from the original freely. If the engine was built hexagonally, new front-ends
+  **reuse the core through new adapters** rather than forking it (nesmith's egui
+  GUI drove `core` via in-memory `ImageSource`/`ArtifactSink` fakes — no engine
+  changes). Switch to normal feature dev + `superpowers:brainstorming` here.
 
 ## Quick reference
 
@@ -121,6 +139,11 @@ was mechanical and the oracle was real.
   status (parent rows included) *in the implementing branch*.
 - **Merging a stacked PR before its base retargets** → it lands on the wrong base.
 - **Treating a stage with no golden as proven** (it isn't until end-to-end passes).
+- **Writing the implementation when the human wanted to own it** — in scaffold-only
+  mode, stop at RED and wait.
+- **Building a ticket on a vague or background signal** instead of an explicit go.
+- **Carrying the porting discipline into post-parity feature work** — once the
+  goldens pass, it's ordinary development; brainstorm and diverge.
 
 ## Reference files
 
